@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Página inicial</h1>
+    <button onclick="acenderLampada()" type="button">Acender Lâmpada</button>
+    <button onclick="apagarLampada()" type="button">Apagar Lâmpada</button><br /><br />
+    <button onclick="entrarNoQuarto()" type="button">Entrar no quarto</button>
+    <button onclick="sairDoQuarto()" type="button">Sair do quarto</button><br /><br /><br />
+    <p>Nesse momento tem <%= qtd %> pessoas no quarto</p>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        function entrarNoQuarto() {
+            $.post('/add', {
+                add: 1
+            }, function(data, status){
+                location.replace('/');
+            })
+        }
+        function sairDoQuarto() {
+            $.post('/remove', {
+                del: 1
+            }, function(data, status){
+                location.replace('/');
+            })
+        }
+        function acenderLampada() {
+            $.post('/acender', {
+                acender: 'ligar'
+            }, function(data, status){
+                location.replace('/');
+            })
+        }
+        function apagarLampada() {
+            $.post('/apagar', {
+                apagar: 'desligar'
+            }, function(data, status){
+                location.replace('/');
+            })
+        }
+    </script>
+</body>
+</html>
