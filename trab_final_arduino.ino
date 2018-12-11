@@ -87,7 +87,7 @@ void loop() {
   
   //imprime o valor lido do LDR no monitor serial
   Serial.println(ldrValor);
-  delay(2000);
+  delay(1000);
  
   client.loop();
 }
