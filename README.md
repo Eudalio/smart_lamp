@@ -29,7 +29,9 @@ Basicamente, precisa definir variáveis com ip que o arduino vai usar, ip do ser
 
 #### Protocolo de comunicação e controle
 No meu computador eu instalei um broker para receber mensagens MQTT (Mosquitto). A partir foi habilitado a possibilidade de utilizar mensagens MQTT e criação de tópicos. O fluxo da aplicação basicamente se baseia pela troca de mensagens. O **arduino** subscreve no tópico *"casa/lampada"* e portanto fica escutando as alterações e publicações feitas neste tópico. Além de subscrever nesse tópico ele publica em um outro tópico, denominado *"casa/lampada/estado"* onde informa para o servidor o estado do sensor de luminosidade. E o servidor feito em NodeJS faz o contrário do arduino, ele subscreve no tópico *"casa/lampada/estado"* e publica mensagens somente no tópico *"casa/lampada"*.
+
 **Tópico "casa/lampada"** - recebe mensagens do tipo {"ligar", "desligar"}
+
 **Tópico "casa/lampada/estado"** - recebe números gerados dinamicamente conforme lidos do sensor de luminosidade, dentro da faixa {0 - 1023}
 
 #### Serviços na internet
